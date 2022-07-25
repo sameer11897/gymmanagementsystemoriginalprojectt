@@ -1,0 +1,40 @@
+
+
+{% load static %}
+{% block common %}
+    {% include 'adminnavbar.html' %}
+
+<br><br><br><br>
+<table align="center" bgcolor="#5f9ea0" border="2">
+    <tr><th colspan="8">USER REQUEST FOR GYM</th></tr>
+    <tr>
+        <th>Gym Name</th>
+        <th>Gym Area</th>
+        <th>User Name</th>
+        <th>User Id</th>
+        <th>Status</th>
+        <th colspan="2">Update Status</th>
+        <th>Delete </th>
+
+
+    </tr>
+    <tr>
+    {% for object in list_objects %}
+
+        <td>{{object.gymId.gymname}}</td>
+        <td>{{object.gymId.area}}</td>
+        <td>{{object.userId.username}}</td>
+         <td>{{object.userId.uid}}</td>
+         <td>{{object.requestStatus}}</td>
+         <td><a href="{% url 'accept'  %}?no={{ object.userId.uid}}">Accept</a></td>
+         <td><a href="{% url 'reject' %}?no={{ object.userId.uid }}">Reject</a></td>
+         <td><a href="{% url 'requestdeleteobj'%}?no={{ object.userId.uid }}">Delete</a></td>
+
+        </tr>
+        {% endfor %}
+
+</table>
+</div>
+<div class="true"></div>
+
+{% endblock %}

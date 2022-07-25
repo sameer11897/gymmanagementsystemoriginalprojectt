@@ -1,0 +1,31 @@
+
+{% load static %}
+{% block common %}
+    {% include 'usernavbar.html' %}
+    <html>
+    <body>
+    <form action="{% url 'savequery' %}" method="post">
+        {% csrf_token %}
+        <h1 align="center">WRITE QUERY</h1>
+        <table align="center" bgcolor="#7fffd4" border="3" width="300" height="00">
+        <tr>
+                  <th rowspan="3"> <img src="{% static 'images/query.gif' %}" height="300" width="300"></th>
+              </tr>
+            <tr>
+                <th><input type="text" placeholder="USERNAME" required name="t1"></th>
+            </tr>
+            <tr>
+                <th><P><input type="text" placeholder="WRITWE A QUERY" required name="t2"></P></th>
+            </tr>
+            <tr>3
+                <th colspan="3"><button type="submit">ADD QUERY</button></th>
+            </tr>
+             <tr>  {% for x in messages %}</tr>
+                  <th>  {{ x }}</th>
+                      {% endfor %}
+
+        </table>
+    </form>
+    </body>
+    </html>
+{% endblock %}

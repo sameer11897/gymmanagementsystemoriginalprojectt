@@ -1,0 +1,23 @@
+
+{% load static %}
+{% block common %}
+    {% include 'usernavbar.html' %}
+<html>
+<body>
+<h1 align="center" >TRAINER INFORMATION</h1>
+<table align="center" bgcolor="aqua" border="2"><tr><th>TRAINER NAME</th><th>SATATUS</th><th>AGE</th><th>EXPERINCE</th><th>MOBILE NUMBER</th></tr>
+
+    <tr>{% for x in td %}</tr>
+        <th>{{ x.trainername }}</th>
+          <th>{{ x.status}}</th>
+          <th>{{ x.age}}</th>
+          <th>{{ x.expirence}}</th>
+          <th>{{ x.mno }}</th>
+
+
+    {% endfor %}
+
+</table>
+</body>
+</html>
+{% endblock  %}

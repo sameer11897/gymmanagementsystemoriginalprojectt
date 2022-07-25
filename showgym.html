@@ -1,0 +1,45 @@
+<style>
+    .gg{
+
+        font-family: Arial;
+        color: black;
+        column-span: all;
+        font-size: xxx-large;
+    }
+</style>
+{% load static %}
+<html>
+<body>
+{% block common %}
+    {% include 'usernavbar.html' %}
+
+<table align="center" border="2" bgcolor="#7fff00">
+    <tr><th colspan="13" class="gg">GYM INFORMATION</th></tr>
+    <tr>
+        <th>GYM ID</th> <th>GYM NAME</th><th>GYM LOCATION</th><th>NO OF TRAINERS</th><th>MOBILENUMBER</th>
+        <th>FEES</th><th>AREA</th><th>NO OF MUMBERS</th><th>NO OF EQIPMENTS</th>
+        <th>OPEN TIME</th><th>CLOSE TIME</th><th>MAKE REQUEST</th>
+    </tr>
+
+    {% for x in items %}
+        <tr>
+            <td>{{ x.gid }}</td>
+            <td> {{ x.gymname }}</td>
+            <td>{{ x.location }}</td>
+            <td>{{ x.numberoftrainers }}</td>
+            <td>{{ x.mnumber }}</td>
+            <td>{{ x.fees }}</td>
+            <td>{{ x.area }}</td>
+            <td>{{ x.numberofmembers}}</td>
+            <td>{{  x.numberofequipments}}</td>
+            <td>{{ x.opentime }}</td>
+            <td> {{ x.closetime }}</td>
+            <td><a href="{% url 'userrequest' %}?no={{ x.gid}}">MAKE REQUEST</a></td>
+
+        </tr>
+    {% endfor %}
+    <tr><th>1</th><th>2</th><tr>
+{% endblock %}
+</table>
+</body>
+</html>

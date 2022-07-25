@@ -1,0 +1,41 @@
+<style>
+    .dd{
+        font-family: "Arial Black";
+    font-size: 30px;
+    }
+
+
+</style>
+{% load static %}
+{% block common %}
+    {% include 'adminnavbar.html' %}
+<html>
+<body>
+
+<form action="{% url 'updatefinalgym' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<br><br><br><br><br><br>
+<table align="center" bgcolor="#f0f8ff" width="500" height="500">
+    <tr><th bgcolor="#7fff00" class="dd">GYM UPDATE</th></tr>
+    <tr><th align="center">Gym id<input type="number" readonly value="{{gym.gid}}" name="t1" ></th></tr>
+    <tr><th align="center">GYM Name<input type="text"  value="{{gym.gymname}}" name="t2" ></th></tr>
+    <tr><th>LOCATION<input type="text"  value="{{ gym.location }}" name="t3"></th></tr>
+    <tr><th>Number of Trainers<input type="number" value="{{ gym.numberoftrainers }}" name="t4"></th></tr>
+    <tr><th>Mobile number<input type="number" value="{{ gym.mnumber}}" name="t5"></th></tr>
+    <tr><th>fees<input type="number" value="{{ gym.fees }}" name="t6"></th></tr>
+    <tr><th>Area<input type="text" value="{{ gym.area}}" name="t7"></th></tr>
+<tr><th>Number of members<input type="number" value="{{ gym.numberofmembers }}" name="t8"></th></tr>
+<tr><th>Number Of Equiment<input type="number" value="{{ gym.numberofequipments}}" name="t9"></th></tr>
+<tr><th>Open Time<input type="number" value="{{ gym.opentime }}" name="t10"></th></tr>
+<tr><th>Close Time<input type="number" value="{{ gym.closetime }}" name="t11"></th></tr>
+
+    <tr><th><button type="submit">SUBMIT</button></th></tr>
+ <tr>  {% for x in messages %}</tr>
+                  <th colspan="3">  {{ x }}</th>
+                      {% endfor %}
+
+</table>
+</form>
+</body>
+</html>
+{% endblock  %}

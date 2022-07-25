@@ -1,0 +1,31 @@
+
+
+{% load static%}
+{% block common %}
+    {% include 'usernavbar.html' %}
+
+<BR><br><br><br>
+<table align="center" bgcolor="#7fff00" border="2" width="800" height="500">
+    <tr><td colspan="5" align="center" height="50">REQUEST STATUS</td></tr>
+    <tr>
+        <th>Gym Name</th>
+        <th>Location</th>
+        <th>User Name</th>
+        <th>User Id</th>
+        <th>Status</th>
+    </tr>
+    {% for obj in objectss %}
+    <tr>
+        <td>{{obj.gymId.gymname}}</td>
+        <td>{{obj.gymId.location}}</td>
+        <td>{{obj.userId.name}}</td>
+        <td>{{obj.userId.uid}}</td>
+        <td>{{obj.requestStatus}}</td>
+    {% endfor %}
+    </tr>
+</table>
+
+
+
+
+{% endblock %}

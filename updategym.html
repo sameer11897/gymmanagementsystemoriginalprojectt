@@ -1,0 +1,46 @@
+
+<style>
+    .ss{
+    font-family: "Arial Black";
+    font-size: 30px;
+    }
+</style>
+
+
+
+{% load static %}
+<html>
+<body>
+{% block common %}
+    {% include 'adminnavbar.html' %}
+    <br><br><br><br><br><br>
+
+<table align="center" border="2" bgcolor="#7fffd4">
+    <tr><th class="ss" colspan="15">GYM INFORMATION</th></tr>
+    <tr>
+        <th>GYM ID</th> <th>GYM NAME</th><th>GYM LOCATION</th><th>NO OF TRAINERS</th><th>MOBILENUMBER</th>
+        <th>FEES</th><th>AREA</th><th>NO OF MUMBERS</th><th>NO OF EQIPMENTS</th>
+        <th>OPEN TIME</th><th>CLOSE TIME</th><th>UPDATE</th>
+    </tr>
+
+    {% for x in gdd %}
+        <tr>
+            <td>{{ x.gid }}</td>
+            <td> {{ x.gymname }}</td>
+            <td>{{ x.location }}</td>
+            <td>{{ x.numberoftrainers }}</td>
+            <td>{{ x.mnumber }}</td>
+            <td>{{ x.fees }}</td>
+            <td>{{ x.area }}</td>
+            <td>{{ x.numberofmembers}}</td>
+            <td>{{  x.numberofequipments}}</td>
+            <td>{{ x.opentime }}</td>
+            <td> {{ x.closetime }}</td>
+            <td><a href="{% url 'updategymm' %}?no={{ x.gid }}">UPDATE GYM</a></td>
+
+        </tr>
+    {% endfor %}
+{% endblock %}
+</table>
+</body>
+</html>

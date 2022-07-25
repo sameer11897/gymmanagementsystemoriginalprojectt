@@ -1,0 +1,38 @@
+
+{% load static %}
+{% block common %}
+    {% include 'adminnavbar.html' %}
+    <html>
+    <body bgcolor="yellow">
+    <form action="{% url 'savetrainerdetailes' %}" method="post">
+        {% csrf_token %}
+    <br><br><br><br>
+        <table align="center"  width="700" border="2" bgcolor="#ff8c00">
+            <tr>
+              <td align="center" colspan="4" bgcolor="#ff7f50">TRAINER DETAILES</td>
+            </tr>
+        <tr>
+                  <th align="center" rowspan="8"><img src="{% static 'images/workout.jpg'%}"width="400" height="300" ></th>
+              </tr>
+            <tr><th>{{ tform.tid.label }}{{ tform.tid }}</th></tr>
+            <tr><th>{{ tform.trainername.label }}{{ tform.trainername }}</th></tr>
+            <tr><th>{{ tform.status.label }}{{ tform.status}}</th></tr>
+            <tr><th>{{ tform.age.label }}{{ tform.age }}</th></tr>
+            <tr><th>{{ tform.expirence.label }}{{ tform.expirence }}</th></tr>
+            <tr><th>{{ tform.mno.label }}{{ tform.mno }}{{ tform.errors }}</th></tr>
+
+
+                  <th style="text-align: center" colspan="12">
+                      <button type="submit">ADD TRAINER DETAILES</button>
+                  </th>
+             <tr>  {% for x in messages %}</tr>
+                  <th colspan="3">  {{ x }}</th>
+                      {% endfor %}
+            <tr><th bgcolor="#7fffd4" style="marquee: left" colspan="10"><a href="{% url 'showtraineradmin' %}">Delete trainer details</a></th></tr>
+            <tr><th bgcolor="aqua" style="marquee: left" colspan="10"><a href="{% url 'updatetrainerdetailes' %}">UPdate trainer details</a></th></tr>
+
+        </table>
+    </form>
+    </body>
+    </html>
+{% endblock %}

@@ -1,0 +1,46 @@
+
+{% load static %}
+      {% block common %}
+          {% include 'adminnavbar.html' %}
+          <html>
+          <body>
+          <br>
+          <br>
+
+<form action="{% url 'checkregistergym' %}" method="post" >
+{% csrf_token %}
+<br><br>
+          <table align="center" width="1000" border="2" bgcolor="#00ffff">
+
+
+              <tr><th colspan="10" BGCOLOR="#ff7f50">ADD GYM DETAILES</th></tr>
+              <tr>
+                  <th rowspan="12"> <img src="{% static 'images/gymhd.jpg' %}" height="500" width="500"></th>
+              </tr>
+              <tr><th>{{ gymform.gid.label }}{{ gymform.gid}}<th></tr>
+              <tr><th>{{ gymform.gymname.label }}{{ gymform.gymname }}<th></tr>
+              <tr><th>{{ gymform.location.label }}{{ gymform.location }}<th></tr>
+              <tr><th>{{ gymform.numberoftrainers.label }}{{ gymform.numberoftrainers}}<th></tr>
+              <tr><th>{{ gymform.mnumber.label }}{{ gymform.mnumber }}{{ gymform.errors }}<th></tr>
+              <tr><th>{{ gymform.fees.label }}{{ gymform.fees }}<th></tr>
+              <tr><th>{{ gymform.area.label }}{{ gymform.area }}<th></tr>
+              <tr><th>{{ gymform.numberoftrainers.label }}{{ gymform.numberofmembers }}<th></tr>
+              <tr><th>{{ gymform.numberofequipments.label }}{{ gymform.numberofequipments }}<th></tr>
+              <tr><th>{{ gymform.opentime.label }}{{ gymform.opentime }}<th></tr>
+              <tr><th>{{ gymform.closetime.label }}{{ gymform.closetime }}<th></tr>
+                  <th style="text-align: center" colspan="12">
+                      <button type="submit">ADD GYM</button>
+                  </th>
+              </tr>
+              <tr><th colspan="12"><a href="{% url 'showgymadmin' %}">DELETE GYM</a></th></tr>
+              <tr><th colspan="12"><a href="{% url 'updategym' %}">UPDATE GYM</a></th></tr>
+
+              <tr>  {% for x in messages %}</tr>
+                  <th>  {{ x }}</th>
+                      {% endfor %}
+
+          </table>
+          </form>
+          </body>
+          </html>
+      {% endblock %}

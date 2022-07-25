@@ -1,0 +1,34 @@
+
+{% load static %}
+{% block common %}
+    {% include 'adminnavbar.html' %}
+<html>
+<body>
+<BR>
+<BR><BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+
+<table align="center" bgcolor="aqua" border="2">
+    <tr><th COLSPAN="7" BGCOLOR="#ff7f50">UPDATE TRAINER DETAILES</th></tr>
+    <tr><th>TRAINER ID</th><th>TRAINER NAME</th><th>SATATUS</th><th>AGE</th><th>EXPERINCE</th><th>MOBILE NUMBER</th><th>UPDATE DETAILES</th></tr>
+
+    <tr>{% for x in td %}</tr>
+         <th>{{ x.tid}}</th>
+        <th>{{ x.trainername }}</th>
+          <th>{{ x.status}}</th>
+          <th>{{ x.age}}</th>
+          <th>{{ x.expirence}}</th>
+          <th>{{ x.mno }}</th>
+        <th><a href="{% url 'updatetrainer' %}?no={{ x.tid }}">UPDATE</a></th>
+
+    {% endfor %}
+
+</table>
+</body>
+</html>
+{% endblock  %}

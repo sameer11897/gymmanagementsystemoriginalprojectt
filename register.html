@@ -1,0 +1,39 @@
+{% extends 'home.html' %}
+{% load static %}
+      {% block common %}
+          {% include 'navbar.html' %}
+          <html>
+          <body>
+          <br>
+          <br>
+          <form action="{% url 'checkregister' %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+
+
+          <table align="center"border="2" bgcolor="#ff8c00" >
+              <h1 style=" text-align: center" >USER REGISTRATION  PAGE</h1>
+            <tr>
+                <th rowspan="9"> <img src="{% static 'images/login2.gif' %}" height="300" width="300"></th>
+              </tr>
+              <tr><th>{{ ff.uid.label }}{{ ff.uid}}</th></tr>
+              <tr><th>{{ ff.name.label }}{{ ff.name}}</th></tr>
+              <tr><th>{{ ff.age.label }}{{ ff.age }}</th></tr>
+              <tr><th>{{ ff.contact.label }}{{ ff.contact }}{{ ff.errors}}</th></tr>
+              <tr><th>{{ ff.gender.label }}{{ ff.gender}}</th></tr>
+              <tr><th>{{ ff.username.label }}{{ ff.username }}</th></tr>
+              <tr><th>{{ ff.password.label }}{{ ff.password }}</th></tr>
+
+                  <th style="text-align: center" colspan="9">
+                      <button type="submit">Register</button>
+                  </th>
+              </tr>
+
+              <tr>  {% for x in messages %}</tr>
+                  <th>  {{ x }}</th>
+                      {% endfor %}
+
+          </table>
+          </form>
+          </body>
+          </html>
+      {% endblock %}

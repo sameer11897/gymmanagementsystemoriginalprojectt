@@ -1,0 +1,25 @@
+
+{% load static %}
+{% block common %}
+    {% include 'adminnavbar.html' %}
+<html>
+<body>
+<h1 align="center" >TRAINER INFORMATION</h1>
+<table align="center" bgcolor="aqua" border="2"><tr><th>Trainer Id</th><th>TRAINER NAME</th><th>SATATUS</th><th>AGE</th><th>EXPERINCE</th><th>MOBILE NUMBER</th><th>DELETE</th></tr>
+
+    <tr>{% for x in tdd %}</tr>
+         <th>{{ x.tid }}</th>
+        <th>{{ x.trainername }}</th>
+          <th>{{ x.status}}</th>
+          <th>{{ x.age}}</th>
+          <th>{{ x.expirence}}</th>
+          <th>{{ x.mno }}</th>
+        <th><a href="{% url 'deletetraineradmin' %}?no={{ x.tid }}">DELETE</a></th>
+
+
+    {% endfor %}
+
+</table>
+</body>
+</html>
+{% endblock  %}

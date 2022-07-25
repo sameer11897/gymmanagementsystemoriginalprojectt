@@ -1,0 +1,35 @@
+<style>
+   .rj{
+    font-family: "Arial Black";
+    font-size: 30px;
+</style>
+{% load static %}
+{% block common %}
+    {% include 'adminnavbar.html' %}
+<html>
+<body>
+<BR><BR>
+<BR>
+<BR>
+<BR>
+
+<form action="{% url 'updatefinaltrainer' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<table align="center" bgcolor="#f0f8ff" width="500" height="500" border="1">
+    <tr><th bgcolor="#7fff00" class="rj">TRAINER UPDATE</th></tr>
+    <tr><th align="center">Trainer id<input type="number" readonly value="{{ trdada.tid }}" name="t1" ></th></tr>
+    <tr><th align="center">Triner Name<input type="text"  value="{{ trdada.trainername}}" name="t2" ></th></tr>
+    <tr><th>Status<input type="text"  value="{{ trdada.status }}" name="t3"></th></tr>
+    <tr><th>Age<input type="number" value="{{ trdada.age }}" name="t4"></th></tr>
+    <tr><th>Experience<input type="number" value="{{ trdada.expirence}}" name="t5"></th></tr>
+    <tr><th>Mobile number<input type="number" value="{{ trdada.mno }}" name="t6"></th></tr>
+    <tr><th><button type="submit">SUBMIT</button></th></tr>
+ <tr>  {% for x in messages %}</tr>
+                  <th colspan="3">  {{ x }}</th>
+                      {% endfor %}
+
+</table>
+</form>
+</body>
+</html>
+{% endblock  %}

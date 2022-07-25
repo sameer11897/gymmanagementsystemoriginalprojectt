@@ -1,0 +1,26 @@
+
+{% load static %}
+{% block common %}
+    {% include 'adminnavbar.html' %}
+<html>
+<body>
+<h1 align="center" >USER INFORMATION</h1>
+<table align="center" bgcolor="aqua" border="2">
+    <tr><th colspan="7">USER INFORMATION</th></tr>
+    <tr><th>User Id</th><th>USER NAME</th><th>AGE</th><th>GENDER</th><th>CONTACT NUMBER</th><th>USERNAME</th></tr>
+
+    <tr>{% for x in us %}</tr>
+        <th>{{ x.uid }}</th>
+        <th>{{ x.name }}</th>
+          <th>{{ x.age}}</th>
+          <th>{{ x.gender}}</th>
+          <th>{{ x.contact}}</th>
+          <th>{{ x.username }}</th>
+
+
+    {% endfor %}
+
+</table>
+</body>
+</html>
+{% endblock  %}
